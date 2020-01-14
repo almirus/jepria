@@ -38,7 +38,7 @@ PassNTLMv2      91E810C86B3FD1BD14342F945ED42CD6 # Only for user YOUR_USERNAME, 
 запись, из-за попыток обращения к прокси-серверу с неправильными данными.
 - В последующем каждый раз, меняя файл cntlm.ini, не забывайте выполнять перезапуск сервиса *CNTLM Authentication Proxy*
 
-5.Запустите сервис *CNTLM Authentication Proxy*, через Службы Windows или консольной командой
+5.Запустите сервис *CNTLM Authentication Proxy*, через Службы Windows или консольной командой (возможно будут необходимы права администратора)
 
 ```
 net start cntlm
@@ -81,4 +81,9 @@ net start cntlm
       <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
     </proxy>
   </proxies>
+```
+
+При использование mvnw необходимо в jvm.config добавить:
+```
+-Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=53128
 ```
